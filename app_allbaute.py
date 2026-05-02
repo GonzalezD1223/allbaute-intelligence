@@ -27,7 +27,7 @@ def cargar_datos_nube():
 # Ejecutamos la carga incluyendo la nueva variable
 v_2024, c_2024, ciu_2024, df_heatmap, df_rfm_2024, df_audit_2024, df_fugas_detalladas = cargar_datos_nube()
 
-fecha_corte = '2024-01-01'
+fecha_corte = '2026-01-01'
 
 # --- ESTILO VISUAL (CSS) ---
 st.markdown("""
@@ -67,11 +67,11 @@ if opcion == "Resumen Ejecutivo":
     c4.metric("Alcance Geográfico", f"{ciu_2024} Municipios")
     
     st.success("✅ **Certificación de Datos:** La base de datos ha sido depurada y normalizada satisfactoriamente.")
-    st.info("💡 **Hallazgo:** Solo el 14% de la base histórica ha interactuado en 2024. Existe una oportunidad masiva de reactivación.")
+    st.info("💡 **Hallazgo:** Solo el 14% de la base histórica ha interactuado en 2026. Existe una oportunidad masiva de reactivación.")
 
 # --- PILAR 2: INVENTARIO & TALLAS ---
 elif opcion == "Inventario & Tallas":
-    st.header("📉 Auditoría de Eficiencia de Inventario 2024")
+    st.header("📉 Auditoría de Eficiencia de Inventario 2026")
     
     if not df_heatmap.empty:
         pivot_df = df_heatmap.pivot(index='Nom_Ciudad', columns='Talla_Solicitada', values='Unidades').fillna(0)
@@ -95,7 +95,7 @@ elif opcion == "Inventario & Tallas":
 
 # --- PILAR 3: SEGMENTACIÓN DE CLIENTES ---
 elif opcion == "Segmentación de Clientes":
-    st.header("🌪️ Embudo de Retención de Clientes 2024")
+    st.header("🌪️ Embudo de Retención de Clientes 2026")
     
     fig_funnel = go.Figure(go.Funnel(
         y = ["Prospectos / Nuevos", "Clientes Leales", "Campeones (VIP)"],
@@ -115,7 +115,7 @@ elif opcion == "Segmentación de Clientes":
 # --- PILAR 4: AUDITORÍA FINANCIERA ---
 # --- PILAR 4: AUDITORÍA FINANCIERA ---
 elif opcion == "Auditoría Financiera":
-    st.header(f"⚖️ Control de Riesgo y Conciliación 2024")
+    st.header(f"⚖️ Control de Riesgo y Conciliación 2026")
     
     # Calculamos métricas reales basadas en el archivo de detalles
     n_fugas = len(df_fugas_detalladas)
@@ -147,4 +147,4 @@ elif opcion == "Auditoría Financiera":
     st.info("💡 **Recomendación Senior:** Se requiere una conciliación inmediata de folios físicos contra sistema para legalizar estos ingresos.")
 
 st.sidebar.markdown("---")
-st.sidebar.caption("📊 Senior Data Consultant | All Baute 2024")
+st.sidebar.caption("📊 Senior Data Consultant | All Baute 2026")
